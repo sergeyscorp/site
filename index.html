@@ -4,10 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Прайс-лист</title>
-    <style> /* Общие стили */ * { margin: 0; padding: 0; box-sizing: border-box; } body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; } h1 { text-align: center; margin-top: 50px; margin-bottom: 30px; } .container { max-width: 800px; margin: 0 auto; padding: 20px; background-color: white; border-radius: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); } /* Стиль таблицы */ table { width: 100%; border-collapse: collapse; margin-bottom: 40px; } th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; } thead tr { background-color: #e6e6e6; } tbody tr:nth-child(even) { background-color: #f9f9f9; } /* Адаптивность */ @media (max-width: 768px) { table { display: block; overflow-x: scroll; } thead { display: none; } tbody tr { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; background-color: #fff; } tbody tr > td { border-bottom: none; padding: 10px; } tbody tr > td:first-child { font-weight: bold; } } </style>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        body {
+            font-family: Arial, sans-serif; 
+            background-color: #f4f4f4; 
+            color: #333; 
+            transition: background-color 0.3s, color 0.3s; 
+        }
+        h1 {
+            text-align: center; 
+            margin-top: 50px; 
+            margin-bottom: 30px; 
+        }
+        .container {
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: white; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+        }
+        /* Стиль таблицы */
+        table {
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-bottom: 40px; 
+        }
+        th, td {
+            padding: 12px; 
+            text-align: left; 
+            border-bottom: 1px solid #ddd; 
+        }
+        thead tr {
+            background-color: #e6e6e6; 
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9; 
+        }
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            table {
+                display: block; 
+                overflow-x: scroll; 
+            }
+            thead {
+                display: none; 
+            }
+            tbody tr {
+                display: grid; 
+                grid-template-columns: repeat(3, 1fr); 
+                gap: 10px; 
+                background-color: #fff; 
+            }
+            tbody tr > td {
+                border-bottom: none; 
+                padding: 10px; 
+            }
+            tbody tr > td:first-child {
+                font-weight: bold; 
+            }
+        }
+        /* Темная тема для автоматического определения */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #333; 
+                color: #f4f4f4; 
+            }
+            .container {
+                background-color: #444; 
+            }
+            thead tr {
+                background-color: #555; 
+            }
+            tbody tr:nth-child(even) {
+                background-color: #666; 
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
+        <h1>Прайс-лист</h1>
         <table>
             <thead>
                 <tr>
@@ -23,12 +106,7 @@
                     <td>Баланс на карте 500 руб.</td>
                 </tr>
                 <tr>
-<<<<<<< HEAD
-                    <td>sim-карта Мегафон
-</td>
-=======
                     <td>sim-карта Мегафон</td>
->>>>>>> 215bbd580142cab46e10cf17d9db467ea2390e08
                     <td>150 р.</td>
                     <td>Предоплачена на 3 месяца<br>20 гб, 300 мин</td>
                 </tr>
@@ -56,8 +134,4 @@
         </table>
     </div>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 215bbd580142cab46e10cf17d9db467ea2390e08
