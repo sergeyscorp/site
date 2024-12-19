@@ -6,84 +6,58 @@
     <title>Прайс-лист</title>
     <style>
         /* Общие стили */
-        * {
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif; 
-            background-color: #f4f4f4; 
-            color: #333; 
-            transition: background-color 0.3s, color 0.3s; 
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
         }
         h1 {
-            text-align: center; 
-            margin-top: 50px; 
-            margin-bottom: 30px; 
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
         }
         .container {
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 20px; 
-            background-color: white; 
-            border-radius: 10px; 
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
-        /* Стиль таблицы */
-        table {
-            width: 100%; 
-            border-collapse: collapse; 
-            margin-bottom: 40px; 
+        /* Стиль карточек */
+        .row {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 12px;
+            margin-bottom: 10px;
+            background-color: #fff;
         }
-        th, td {
-            padding: 12px; 
-            text-align: left; 
-            border-bottom: 1px solid #ddd; 
+        .row:nth-child(even) {
+            background-color: #f9f9f9;
         }
-        thead tr {
-            background-color: #e6e6e6; 
+        .row h2 {
+            font-size: 20px;
+            margin-bottom: 5px;
         }
-        tbody tr:nth-child(even) {
-            background-color: #f9f9f9; 
+        .row p {
+            margin: 5px 0;
         }
-        /* Адаптивность */
-        @media (max-width: 768px) {
-            table {
-                display: block; 
-                overflow-x: scroll; 
-            }
-            thead {
-                display: none; 
-            }
-            tbody tr {
-                display: grid; 
-                grid-template-columns: repeat(3, 1fr); 
-                gap: 10px; 
-                background-color: #fff; 
-            }
-            tbody tr > td {
-                border-bottom: none; 
-                padding: 10px; 
-            }
-            tbody tr > td:first-child {
-                font-weight: bold; 
-            }
-        }
-        /* Темная тема для автоматического определения */
+        /* Темная тема */
         @media (prefers-color-scheme: dark) {
             body {
-                background-color: #333; 
-                color: #f4f4f4; 
+                background-color: #333;
+                color: #f4f4f4;
             }
             .container {
-                background-color: #444; 
+                background-color: #444;
             }
-            thead tr {
-                background-color: #555; 
-            }
-            tbody tr:nth-child(even) {
-                background-color: #666; 
+            .row {
+                background-color: #555;
+                border-color: #666;
             }
         }
     </style>
@@ -91,47 +65,36 @@
 <body>
     <div class="container">
         <h1>Прайс-лист</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Наименование</th>
-                    <th>Цена</th>
-                    <th>Описание</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>sim-карта МТС</td>
-                    <td>600</td>
-                    <td>Баланс на карте 500 руб.</td>
-                </tr>
-                <tr>
-                    <td>sim-карта Мегафон</td>
-                    <td>150 р.</td>
-                    <td>Предоплачена на 3 месяца<br>20 гб, 300 мин</td>
-                </tr>
-                <tr>
-                    <td>Беруши</td>
-                    <td>100 руб.</td>
-                    <td>Пара</td>
-                </tr>
-                <tr>
-                    <td>Капучино</td>
-                    <td>40 руб.</td>
-                    <td>Di Torino с шоколадом</td>
-                </tr>
-                <tr>
-                    <td>Гб на теле2</td>
-                    <td>10 руб.</td>
-                    <td>За гиг</td>
-                </tr>
-                <tr>
-                    <td>Подписка Mix S на теле2</td>
-                    <td>100 руб.</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="row">
+            <h2>Наименование: sim-карта МТС</h2>
+            <p>Цена: 600 рублей</p>
+            <p>Описание: Баланс на карте 500 руб.</p>
+        </div>
+        <div class="row">
+            <h2>Наименование: sim-карта Мегафон</h2>
+            <p>Цена: 150 рублей</p>
+            <p>Описание: Предоплачена на 3 месяца, 20 Гб, 300 мин</p>
+        </div>
+        <div class="row">
+            <h2>Наименование: Беруши</h2>
+            <p>Цена: 100 рублей</p>
+            <p>Описание: Пара</p>
+        </div>
+        <div class="row">
+            <h2>Наименование: Капучино</h2>
+            <p>Цена: 40 рублей</p>
+            <p>Описание: Di Torino с шоколадом</p>
+        </div>
+        <div class="row">
+            <h2>Наименование: Гб на теле2</h2>
+            <p>Цена: 10 рублей</p>
+            <p>Описание: За Гб</p>
+        </div>
+        <div class="row">
+            <h2>Наименование: Подписка Mix S на теле2</h2>
+            <p>Цена: 100 рублей</p>
+            <p>Описание: Не указано</p>
+        </div>
     </div>
 </body>
 </html>
