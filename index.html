@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Прайс-лист</title>
     <style>
         /* Общие стили */
         * {
@@ -52,10 +51,6 @@
             background-color: #e9ecef; /* Цвет при наведении */
         }
 
-        .row:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
         .row h2 {
             font-size: 1.75em;
             margin-bottom: 10px;
@@ -82,6 +77,10 @@
                 background-color: #555;
                 border-color: #666;
             }
+
+            .row:hover {
+                background-color: #666; /* Цвет при наведении в темной теме */
+            }
         }
     </style>
 </head>
@@ -94,7 +93,7 @@
             <p>Описание: Баланс на карте 500 руб.</p>
         </div>
         <div class="row">
-            <h2>Наименование: sim-карта Мегафон с очень длинным названием</h2>
+            <h2>Наименование: sim-карта Мегафон</h2>
             <p>Цена: 150 рублей</p>
             <p>Описание: Предоплачена на 3 месяца, 20 Гб, 300 мин</p>
         </div>
