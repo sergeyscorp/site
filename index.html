@@ -2,10 +2,11 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="icon/favicon.ico">
-    <link type="image/x-icon" href="/icon/android-chrome-192x192.png">
-    <link type="apple-touch-icon" href="/icon/apple-touch-icon.png">
-    <link rel="manifest" href="icon/site.webmanifest">
+<link rel="icon" type="image/png" href="/icon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/icon/favicon.svg" />
+<link rel="shortcut icon" href="/icon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png" />
+<link rel="manifest" href="/icon/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         /* Общие стили */
@@ -93,20 +94,6 @@
     </style>
 </head>
 <body>
-<script>
-if (‘serviceWorker’ in navigator) {
- window.addEventListener(‘load’, function() {  
-   navigator.serviceWorker.register(‘/sw.js’).then(
-     function(registration) {
-       // Registration was successful
-       console.log(‘ServiceWorker registration successful with scope: ‘, registration.scope); },
-     function(err) {
-       // registration failed :(
-       console.log(‘ServiceWorker registration failed: ‘, err);
-     });
- });
-}
-</script>
     <div class="container">
         <div class="row">
             <h2>Капучино</h2>
