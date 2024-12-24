@@ -8,6 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/icon/apple-touch-icon.png" />
 <link rel="manifest" href="/icon/site.webmanifest" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прайс</title>
     <style>
         /* Общие стили */
         * {
@@ -131,5 +132,10 @@
             <p> Из любого города в любой город. До 12 кг, Почта России</p>
         </div>
     </div>
+<script>
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js', { scope: '/' });
+}
+</script>
 </body>
 </html>
