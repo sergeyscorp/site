@@ -1,0 +1,82 @@
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 2.5em;
+            color: #007bff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Стиль карточек */
+        .row {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 15px;
+            background-color: #fafafa;
+            transition: background-color 0.3s;
+        }
+
+        .row:hover {
+            background-color: #e9ecef; /* Цвет при наведении */
+        }
+
+        .row h2 {
+            font-size: 1.75em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .row p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #333;
+        color: #f4f4f4;
+    }
+
+    .container {
+        background-color: #444;
+    }
+
+    .row {
+        background-color: #555;
+        border-color: #666;
+    }
+
+    .row:hover {
+        background-color: #666; /* Цвет при наведении в темной теме */
+    }
+
+    .row h2 {
+        color: #f4f4f4; /* Добавлено: цвет заголовка */
+    }
+}
