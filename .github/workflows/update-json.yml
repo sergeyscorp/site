@@ -1,7 +1,9 @@
 name: Update JSON from Google Drive
 
 on:
-  workflow_dispatch:  # позволяет запускать его вручную
+  schedule:
+    - cron: '*/5 * * * *'  # Запускать каждые 5 минут
+  workflow_dispatch:  # Позволяет запускать его вручную
 
 permissions:
   contents: write  # Позволяет записывать в репозиторий

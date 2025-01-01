@@ -45,6 +45,60 @@ async function fetchData() {
 // Вызов функции для получения данных
 fetchData();
 </script>
+//
+<div id="products"></div>
+    <div class="overlay" id="overlay"></div>
+    <div class="form-container" id="form">
+        <h2>Форма заказа</h2>
+        <label for="productName">Название товара:</label>
+        <input type="text" id="productName" readonly><br>
+        <label for="productPrice">Цена:</label>
+        <input type="text" id="productPrice" readonly><br>
+        <button id="submit">Отправить</button>
+        <button id="cancel">Отмена</button>
+    </div>
 
+    <script>
+        const productsContainer = document.getElementById('products');
+        const formContainer = document.getElementById('form');
+        const overlay = document.getElementById('overlay');
+        const productNameInput = document.getElementById('productName');
+        const productPriceInput = document.getElementById('productPrice');
+
+        const products = [
+            { name: 'Товар 1', price: 100 },
+            { name: 'Товар 2', price: 200 },
+        ];
+
+        // Создаем блоки товаров
+        products.forEach(product => {
+            const productElement = document.createElement('div');
+            productElement.classList.add('product');
+            productElement.innerHTML = `${product.name} - ${product.price}₽`;
+
+            productElement.addEventListener('click', () => {
+                productNameInput.value = product.name; // Устанавливаем название товара
+                productPriceInput.value = product.price; // Устанавливаем цену товара
+                formContainer.style.display = 'block'; // Показываем форму
+                overlay.style.display = 'block'; // Показываем затемнение фона
+            });
+
+            productsContainer.appendChild(productElement);
+        });
+
+        // Обработка события нажатия на кнопку отмены
+        document.getElementById('cancel').addEventListener('click', () => {
+            formContainer.style.display = 'none'; // Прячем форму
+            overlay.style.display = 'none'; // Прячем затемнение фона
+        });
+
+        // Обработка отправки формы
+        document.getElementById('submit').addEventListener('click', () => {
+            alert('Заказ отправлен!'); // Здесь можно добавить логику отправки данных
+            formContainer.style.display = 'none'; // Скрываем форму
+            overlay.style.display = 'none'; // Прячем затемнение фона
+        });
+    </script>
+//
 </body>
 </html>
