@@ -29,4 +29,4 @@ jobs:
           
           git add data.json
           git commit -m "Update JSON data from Google Drive" || echo "No changes to commit"
-          git push origin main
+          git push
