@@ -1,26 +1,32 @@
 name: Update JSON from Google Drive
 
 on:
-  workflow_dispatch: # позволяет запускать его вручную
+  workflow_dispatch:  # позволяет запускать его вручную
+
+permissions:
+  contents: write  # Позволяет записывать в репозиторий
 
 jobs:
   update_json:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v2
+      - name: Checkout repo
+        uses: actions/checkout@v2
 
-    - name: Pull latest changes
-      run: git pull origin main || true  # Игнорировать ошибки
+      - name: Pull latest changes
+        run: git pull origin main || true  # Игнорировать ошибки
 
-    - name: Download JSON
-      run: |
-        FILE_ID=1Uk3TEqPIu6Zuy-IotMwApDpp0gKD-gLL
-        curl -L -o data.json "https://drive.google.com/uc?export=download&id=$FILE_ID"
+      - name: Download JSON
+        run: |
+          FILE_ID=1Uk3TEqPIu6Zuy-IotMwApDpp0gKD-gLL
+          curl -L -o data.json "https://drive.google.com/uc?export=download&id=$FILE_ID"
 
-    - name: Commit and push changes
-      run: |
-        git add data.json
-        git commit -m "Update JSON data from Google Drive" || echo "No changes to commit"
-        git push origin main
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "sergeysergey141@mail.ru"
+          git config --local user.name "GitHub Actions"
+          
+          git add data.json
+          git commit -m "Update JSON data from Google Drive" || echo "No changes to commit"
+          git push origin main
