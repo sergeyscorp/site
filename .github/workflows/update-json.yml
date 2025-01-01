@@ -1,0 +1,28 @@
+name: Update JSON
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # Каждый 10 минут
+  workflow_dispatch:  # Позволяет вручную запустить действие
+
+jobs:
+  update_json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Download JSON from Google Drive
+        run: |
+          FILE_ID=1Uk3TEqPIu6Zuy-IotMwApDpp0gKD-gLL
+          FILE_NAME=data.json
+          curl -L -o $FILE_NAME "https://drive.google.com/uc?export=download&id=$FILE_ID"
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "sergeysergey141@mail.ru"
+          git config --local user.name "sergeyscorp"
+          git add data.json
+          git commit -m "Update JSON data" || echo "No changes to commit"
+          git push
