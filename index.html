@@ -18,7 +18,7 @@
 
 <script>
 async function fetchData() {
-    const url = 'https://github.com/sergeyscorp/site/blob/main/data.json'; // URL вашего JSON файла
+    const url = 'https://raw.githubusercontent.com/sergeyscorp/site/main/data.json'; // URL вашего JSON файла
     try {
         const response = await fetch(url);
         if (!response.ok) throw new Error(`HTTP error! статус: ${response.status}`);
