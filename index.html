@@ -2,89 +2,49 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-<link rel="icon" type="image/png" href="icon/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="icon/favicon.svg" />
-<link rel="shortcut icon" href="icon/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png" />
-<link rel="manifest" href="/icon/manifest.json" crossorigin="use-credentials" />
-<link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" href="icon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="icon/favicon.svg" />
+    <link rel="shortcut icon" href="icon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png" />
+    <link rel="manifest" href="/icon/manifest.json" crossorigin="use-credentials" />
+    <link rel="stylesheet" href="index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Прайс</title>
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <h2>Капучино</h2>
-            <p>Цена: 35 рублей</p>
-            <p> Di Torino с шоколадом</p>
-        </div>
-        <div class="row">
-            <h2>sim-карта Мегафон</h2>
-            <p>Цена: 200 рублей</p>
-            <p> Предоплачена на 3 месяца - 20 Гб, 300 мин на месяц</p>
-        </div>
-        <div class="row">
-            <h2>Беруши</h2>
-            <p>Цена: 100 рублей</p>
-            <p> Пара</p>
-        </div>
-        <div class="row">
-            <h2>Подписка Mix S на теле2</h2>
-            <p>Цена: 100 рублей</p>
-            <p> На месяц (+50 гб, wink, яндекс+)</p>
-        </div>
-        <div class="row">
-            <h2>Безлимит на теле2</h2>
-            <p>Цена: 400 рублей</p>
-            <p> На 3 месяца</p>
-        </div>
-        <div class="row">
-            <h2>4G Turbo на теле2</h2>
-            <p>Цена: 100 рублей</p>
-            <p> На месяц</p>
-        </div>
-        <div class="row">
-            <h2>МТС Premium</h2>
-            <p>Цена: 150 рублей</p>
-            <p> На 2 месяца</p>
-        </div>
-        <div class="row">
-            <h2>Отправка посылки</h2>
-            <p>Цена: 500 рублей</p>
-            <p> Из любого города в любой город. До 12 кг, Почта России</p>
-        </div>
-
-<div class="row">
-    <h2>Арахис пачка</h2>
-    <p>Цена: 100 рублей</p>
-    <p></p>
-</div>
-
-<div class="row">
-    <h2>Палочки пачка</h2>
-    <p>Цена: 200 рублей</p>
-    <p></p>
-</div>
-
-<div class="row">
-    <h2>Трубочки пачка</h2>
-    <p>Цена: 200 рублей</p>
-    <p></p>
-</div>
-
-<div class="row">
-    <h2>Кола</h2>
-    <p>Цена: 200 рублей</p>
-    <p></p>
-</div>
-
-<div class="row">
-    <h2>торнадо</h2>
-    <p>Цена: 200 рублей</p>
-    <p></p>
-</div>
-
+        <!-- Здесь будут карточки товаров -->
     </div>
-<script src="sw.js"></script>
+
+<script>
+async function fetchData() {
+    const url = 'https://drive.google.com/file/d/1Uk3TEqPIu6Zuy-IotMwApDpp0gKD-gLL/'; // URL вашего JSON файла
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP error! статус: ${response.status}`);
+        const data = await response.json(); // Получаем данные в формате JSON
+
+        const container = document.querySelector('.container');
+        container.innerHTML = ''; // Очищаем контейнер перед обновлением
+
+        data.forEach(row => {
+            const [name, price, description] = row; // Разбиваем данные по порядковым номерам
+            const card = `
+                <div class="row">
+                    <h2>${name}</h2>
+                    <p>Цена: ${price}</p>
+                    <p>${description}</p>
+                </div>`;
+            container.innerHTML += card;
+        });
+    } catch (error) {
+        console.error('Ошибка при получении данных:', error);
+    }
+}
+
+// Вызов функции для получения данных
+fetchData();
+</script>
+
 </body>
 </html>
